@@ -105,19 +105,15 @@ Retrieves the accident information based on the specified record number.
 
 ## Installation
 
-1. Clone the repository:
-
-git clone https://github.com/your-username/accidents-api.git
+1. Clone the repository: git clone https://github.com/your-username/accidents-api.git
 
 
-2. Configure the database connection in the `application.properties` file:
+2. Configure the database connection in the `application.properties` file
 
 
 3. Build the project using Maven: mvn clean install
 
-
-4. Start the server:
-The API will be accessible at `http://localhost:8080`.
+4. Start the server: The API will be accessible at `http://localhost:8080`.
 
 ## Contributing
 
