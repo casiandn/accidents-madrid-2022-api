@@ -49,7 +49,7 @@ The `passengers` field represents a list of passengers involved in the accident.
 
 The severity codes represent the severity of a person's injuries. The following severity codes and their corresponding descriptions are used:
 
-| Severity Code | Spanish Description                              | English Description                                     |
+| Severity Code | English Description                                     |
 |---------------|--------------------------------------------------|---------------------------------------------------------|
 | 1             |  MILD - Emergency care without subsequent hospitalization |
 | 2             |  MILD - Hospitalization up to 24 hours                   |
