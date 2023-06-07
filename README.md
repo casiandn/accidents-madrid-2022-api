@@ -2,6 +2,22 @@
 
 AccidentsAPI is a RESTful API that provides information about accidents that occurred in Madrid in 2022. It allows users to retrieve accident data, including details of the accidents and associated passenger information.
 
+## Technologies Used
+
+- Java
+- JPA
+- Spring Boot
+- Hibernate
+- MySQL
+- Maven
+
+## Getting Started
+
+### Prerequisites
+
+- Java Development Kit (JDK) 8 or higher
+- MySQL database
+
 ## Accident Fields
 
 - `recordNumber`: The record number of the accident.
@@ -35,15 +51,15 @@ The severity codes represent the severity of a person's injuries. The following 
 
 | Severity Code | Spanish Description                              | English Description                                     |
 |---------------|--------------------------------------------------|---------------------------------------------------------|
-| 1             | LEVE - Atención en urgencias sin posterior ingreso | MILD - Emergency care without subsequent hospitalization |
-| 2             | LEVE - Ingreso inferior o igual a 24 horas       | MILD - Hospitalization up to 24 hours                   |
-| 3             | GRAVE - Ingreso superior a 24 horas              | SEVERE - Hospitalization exceeding 24 hours             |
-| 4             | FALLECIDO - Fallecido dentro de las 24 horas     | FATAL - Deceased within 24 hours                        |
-| 5             | LEVE - Asistencia sanitaria ambulatoria con posterioridad | MILD - Outpatient care after the accident   |
-| 6             | LEVE - Asistencia sanitaria inmediata en centro de salud | MILD - Immediate medical care at a health center  |
-| 7             | LEVE - Asistencia sanitaria solo en el lugar del accidente | MILD - Medical care only at the scene of the accident |
-| 14            | LEVE - Sin asistencia sanitaria                  | MILD - No medical care provided                         |
-| 77            | Se desconoce                                     | Unknown                                                 |
+| 1             |  MILD - Emergency care without subsequent hospitalization |
+| 2             |  MILD - Hospitalization up to 24 hours                   |
+| 3             |  SEVERE - Hospitalization exceeding 24 hours             |
+| 4             |  FATAL - Deceased within 24 hours                        |
+| 5             |  MILD - Outpatient care after the accident   |
+| 6             | MILD - Immediate medical care at a health center  |
+| 7             | MILD - Medical care only at the scene of the accident |
+| 14            | MILD - No medical care provided                    |
+| 77            | Unknown                                            |
 
 ## API Endpoints
 
@@ -93,32 +109,17 @@ Retrieves the accident information based on the specified record number.
 
 git clone https://github.com/your-username/accidents-api.git
 
-markdown
+
+2. Configure the database connection in the `application.properties` file:
 
 
-2. Install dependencies:
-
-cd accidents-api
-npm install
-
-markdown
+3. Build the project using Maven: mvn clean install
 
 
-3. Start the server:
-
-npm start
-
-csharp
-
-
+4. Start the server:
 The API will be accessible at `http://localhost:8080`.
 
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please create a new issue or submit a pull request.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-Feel free to customize and enhance the README file to suit your project's specific needs and requirements.
