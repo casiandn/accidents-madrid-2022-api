@@ -9,8 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.casiandenisweb.accidentsmadrid2022api.entity.Accident;
 import com.casiandenisweb.accidentsmadrid2022api.error.AccidentNotFoundException;
-import com.casiandenisweb.accidentsmadrid2022api.models.Accident;
 import com.casiandenisweb.accidentsmadrid2022api.repository.AccidentRepository;
 
 @Service
@@ -23,14 +23,6 @@ public class AccidentServiceImplementation implements AccidentService {
         Pageable pageable = PageRequest.of(page, size);
         Page<Accident> accidentsPage = accidentRepository.findAll(pageable);
         return accidentsPage.getContent();
-    }
-
-    @Override
-    public List<Accident> findAllDetailed(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        Page<Accident> accidentsPage = accidentRepository.findAllWithPassengersAndSeverity(pageable);
-        return accidentsPage.getContent();
-
     }
 
     public Accident findAccidentByRecordNumber(String recordNumber) throws AccidentNotFoundException {

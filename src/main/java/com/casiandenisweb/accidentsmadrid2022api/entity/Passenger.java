@@ -1,12 +1,12 @@
-package com.casiandenisweb.accidentsmadrid2022api.models;
+package com.casiandenisweb.accidentsmadrid2022api.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,14 +24,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Passengers")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(targetEntity = Accident.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Accident.class)
     @JoinColumn(name = "record_number")
-    @JsonBackReference
+    @JsonIdentityReference(alwaysAsId = true) // Refer to Accident by its ID
     private Accident accident;
 
     @Column(name = "person_type")
@@ -42,9 +43,9 @@ public class Passenger {
 
     private String gender;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "severity_code")
-    @JsonBackReference
+    @JsonIgnoreProperties("passengers") // Exclude passenger from severityType
     private SeverityType severityType;
 
     @Column(name = "positive_alcohol")

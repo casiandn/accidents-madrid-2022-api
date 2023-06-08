@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.casiandenisweb.accidentsmadrid2022api.entity.Accident;
 import com.casiandenisweb.accidentsmadrid2022api.error.AccidentNotFoundException;
-import com.casiandenisweb.accidentsmadrid2022api.models.Accident;
 import com.casiandenisweb.accidentsmadrid2022api.service.AccidentService;
 
 @RestController
@@ -31,21 +31,6 @@ public class AccidentController {
         }
         // Return first page
         return accidentService.findAll(0, AccidentService.SIZE);
-    }
-
-    @GetMapping("/accidents/detailed")
-    public List<Accident> fetchAccidentListDetailed(
-            @RequestParam(required = false) Integer page,
-            @RequestParam(required = false) Integer size) {
-        if (page != null) {
-            if (size == null) {
-                size = AccidentService.SIZE; // Use the default size if it's not provided
-            }
-            // Use both page and size parameters for pagination
-            return accidentService.findAllDetailed(page, size);
-        }
-        // Return first page
-        return accidentService.findAllDetailed(0, AccidentService.SIZE);
     }
 
     @GetMapping("/accidents/{recordNumber}")

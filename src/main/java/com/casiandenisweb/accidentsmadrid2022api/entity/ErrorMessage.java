@@ -1,4 +1,4 @@
-package com.casiandenisweb.accidentsmadrid2022api.models;
+package com.casiandenisweb.accidentsmadrid2022api.entity;
 
 import org.springframework.http.HttpStatus;
 
