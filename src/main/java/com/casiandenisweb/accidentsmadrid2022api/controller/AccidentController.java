@@ -30,14 +30,24 @@ public class AccidentController {
         return accidentService.findAllAccidentByDate(date);
     }
 
-    @GetMapping("/accidents/district")
-    public List<Accident> fetchAccidentListByDistrict(@RequestParam(required = true) int districtCode) {
+    @GetMapping("/accidents/districtCode/{districtCode}")
+    public List<Accident> fetchAccidentListByDistrict(@PathVariable(required = true) int districtCode) {
         return accidentService.findAllAccidentByDistrictCode(districtCode);
     }
 
-    @GetMapping("/accidents/type")
-    public List<Accident> fetchAccidentListByAccidentType(@RequestParam(required = true) String accidentType) {
+    @GetMapping("/accidents/accidentType/{accidentType}")
+    public List<Accident> fetchAccidentListByAccidentType(@PathVariable(required = true) String accidentType) {
         return accidentService.findAllAccidentByAccidentType(accidentType);
+    }
+
+    @GetMapping("/accidents/weatherCondition/{weatherCondition}")
+    public List<Accident> fetchAccidentListByWeatherCondition(@PathVariable(required = true) String weatherCondition) {
+        return accidentService.findAllAccidentByWeatherCondition(weatherCondition);
+    }
+
+    @GetMapping("/accidents/alcoholPositive")
+    public List<Accident> fetchAccidentListByAlcoholPositive(@RequestParam(required = false, defaultValue = "n") String positive) {
+        return accidentService.findAllAccidentByPositiveAlcohol(positive);
     }
 
     @GetMapping("/accidents/{recordNumber}")

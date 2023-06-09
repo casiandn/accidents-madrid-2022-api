@@ -17,4 +17,16 @@ public interface AccidentService {
     public List<Accident> findAllAccidentByDistrictCode(int districtCode);
 
     public List<Accident> findAllAccidentByAccidentType(String accidentType);
+
+    public List<Accident> findAllAccidentByWeatherCondition(String weatherCondition);
+
+    public List<Accident> findAllAccidentByPositiveAlcohol(String positive);
+
+    public long count();
+
+    public List<Object[]> findMostCommonAccidentTypes();
+
+    public List<Object[]> groupAccidentsByDistrict();
+
+    public List<Object[]> groupAccidentsBySeverity();
 }

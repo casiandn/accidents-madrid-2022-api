@@ -48,4 +48,36 @@ public class AccidentServiceImplementation implements AccidentService {
         return accidentRepository.findAllAccidentByAccidentType(accidentType);
     }
 
+    @Override
+    public List<Accident> findAllAccidentByWeatherCondition(String weatherCondition) {
+        return accidentRepository.findAllAccidentByWeatherCondition(weatherCondition);
+    }
+
+    @Override
+    public List<Accident> findAllAccidentByPositiveAlcohol(String positive) {
+        return accidentRepository.findAllAccidentByPassengersPositiveAlcoholAndPassengersPersonType(positive, "conductor");
+    }
+
+    // statistics
+
+    @Override
+    public long count() {
+        return accidentRepository.count();
+    }
+
+    @Override
+    public List<Object[]> findMostCommonAccidentTypes() {
+        return accidentRepository.findMostCommonAccidentTypes();
+    }
+
+    @Override
+    public List<Object[]> groupAccidentsByDistrict() {
+        return accidentRepository.groupAccidentByDistrict();
+    }
+
+    @Override
+    public List<Object[]> groupAccidentsBySeverity() {
+        return accidentRepository.groupAccidentsBySeverity();
+    }
+
 }
