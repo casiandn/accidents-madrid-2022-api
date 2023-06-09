@@ -20,17 +20,24 @@ public class AccidentController {
 
     @GetMapping("/accidents")
     public List<Accident> fetchAccidentList(
-            @RequestParam(required = false) Integer page,
-            @RequestParam(required = false) Integer size) {
-        if (page != null) {
-            if (size == null) {
-                size = AccidentService.SIZE; // Use the default size if it's not provided
-            }
-            // Use both page and size parameters for pagination
-            return accidentService.findAll(page, size);
-        }
-        // Return first page
-        return accidentService.findAll(0, AccidentService.SIZE);
+            @RequestParam(required = false, defaultValue = "0") int page,
+            @RequestParam(required = false, defaultValue = AccidentService.SIZE) int size) {
+        return accidentService.findAll(page, size);
+    }
+
+    @GetMapping("/accidents/date")
+    public List<Accident> fetchAccidentListByDate(@RequestParam(required = true) String date) {
+        return accidentService.findAllAccidentByDate(date);
+    }
+
+    @GetMapping("/accidents/district")
+    public List<Accident> fetchAccidentListByDistrict(@RequestParam(required = true) int districtCode) {
+        return accidentService.findAllAccidentByDistrictCode(districtCode);
+    }
+
+    @GetMapping("/accidents/type")
+    public List<Accident> fetchAccidentListByAccidentType(@RequestParam(required = true) String accidentType) {
+        return accidentService.findAllAccidentByAccidentType(accidentType);
     }
 
     @GetMapping("/accidents/{recordNumber}")

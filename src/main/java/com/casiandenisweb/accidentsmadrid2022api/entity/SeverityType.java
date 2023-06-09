@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "severity_type")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "severityCode")
 public class SeverityType {
     @Id
     @Column(name = "severity_code")

@@ -33,4 +33,19 @@ public class AccidentServiceImplementation implements AccidentService {
         return optionalAccident.get();
     }
 
+    @Override
+    public List<Accident> findAllAccidentByDate(String date) {
+        return accidentRepository.findAllAccidentByDate(date);
+    }
+
+    @Override
+    public List<Accident> findAllAccidentByDistrictCode(int districtCode) {
+        return accidentRepository.findAllAccidentByDistrictCode(districtCode);
+    }
+
+    @Override
+    public List<Accident> findAllAccidentByAccidentType(String accidentType) {
+        return accidentRepository.findAllAccidentByAccidentType(accidentType);
+    }
+
 }

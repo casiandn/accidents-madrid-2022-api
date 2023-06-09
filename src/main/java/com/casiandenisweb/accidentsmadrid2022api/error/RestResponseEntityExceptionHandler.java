@@ -22,4 +22,13 @@ public class RestResponseEntityExceptionHandler
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(message);
     }
+
+    @ExceptionHandler(InjuryNotFoundException.class)
+    public ResponseEntity<ErrorMessage> injurieNotFoundException(InjuryNotFoundException exception) {
+        ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,
+                exception.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(message);
+    }
 }
