@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.casiandenisweb.accidentsmadrid2022api.models.Passenger;
+import com.casiandenisweb.accidentsmadrid2022api.entity.Passenger;
 import com.casiandenisweb.accidentsmadrid2022api.repository.PassengerRepository;
 
 @Service

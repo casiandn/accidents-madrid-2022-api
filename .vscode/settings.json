@@ -2,6 +2,6 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "java.dependency.packagePresentation": "hierarchical",
     "java.project.explorer.showNonJavaResources": false,
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "java.debug.settings.onBuildFailureProceed": true
 }
