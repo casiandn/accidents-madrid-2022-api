@@ -21,6 +21,8 @@ AccidentsAPI is a RESTful API that provides information about accidents that occ
 
 ## Entities:
 
+![imagen](https://github.com/casiandn/accidents-madrid-2022-api/assets/69772739/760c4ef4-1956-40a8-aaa6-f86e61a9fcb3)
+
 ![imagen](https://github.com/casiandn/accidents-madrid-2022-api/assets/69772739/98fd38e6-bbd0-47c6-9e05-47159c954a89)
 
 Accident Fields:
@@ -115,6 +117,8 @@ Severity Codes:
 
 
 ## API Endpoints
+
+**All requests must be made with Spanish values**
 
 For the documentation we use Swagger: http://localhost:8080/swagger-ui/index.html#/
 
