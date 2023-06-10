@@ -18,90 +18,54 @@ AccidentsAPI is a RESTful API that provides information about accidents that occ
 - Java Development Kit (JDK) 8 or higher
 - MySQL database
 
-## Accident Fields
+Entities:
+![imagen](https://github.com/casiandn/accidents-madrid-2022-api/assets/69772739/98fd38e6-bbd0-47c6-9e05-47159c954a89)
 
-- `recordNumber`: The record number of the accident.
-- `date`: The date of the accident (format: dd/mm/yyyy).
-- `time`: The time of the accident.
-- `location`: The location of the accident.
-- `number`: The number associated with the accident.
-- `districtCode`: The district code of the accident.
-- `district`: The district where the accident occurred.
-- `accidentType`: The type of accident.
-- `weatherCondition`: The weather condition at the time of the accident.
-- `coordinateXUtm`: The X-coordinate in the UTM coordinate system.
-- `coordinateYUtm`: The Y-coordinate in the UTM coordinate system.
-- `passengers`: A list of passengers involved in the accident.
 
-## Passengers
+Field	English Description	Spanish Description
+recordNumber	The record number of the accident	Número de registro del accidente
+date	The date of the accident (format: dd/mm/yyyy)	Fecha del accidente (formato: dd/mm/aaaa)
+time	The time of the accident	Hora del accidente
+location	The location of the accident	Ubicación del accidente
+number	The number associated with the accident	Número asociado al accidente
+districtCode	The district code of the accident	Código del distrito del accidente
+district	The district where the accident occurred	Distrito donde ocurrió el accidente
+accidentType	The type of accident	Tipo de accidente
+weatherCondition	The weather condition at the time of the accident	Condición climática en el momento del accidente
+coordinateXUtm	The X-coordinate in the UTM coordinate system	Coordenada X UTM en el sistema de coordenadas UTM
+coordinateYUtm	The Y-coordinate in the UTM coordinate system	Coordenada Y UTM en el sistema de coordenadas UTM
+passengers	A list of passengers involved in the accident	Lista de pasajeros involucrados en el accidente
 
-The `passengers` field represents a list of passengers involved in the accident. Each passenger object in the list contains the following fields:
+Passengers
 
-- `id`: The identifier of the passenger.
-- `personType`: The type of person involved (e.g., driver, pedestrian, witness, traveler).
-- `ageRange`: The age range of the person.
-- `gender`: The gender of the person (male, female, unknown).
-- `severityType`: The severity of the person's injuries.
-- `positiveAlcohol`: Indicates whether the person tested positive for alcohol (S/N).
-- `vehicleType`: The type of vehicle the person was in.
+The passengers field represents a list of passengers involved in the accident. Each passenger object in the list contains the following fields:
+Field	English Description	Spanish Description
+id	The identifier of the passenger	Identificador del pasajero
+personType	The type of person involved	Tipo de persona involucrada
+ageRange	The age range of the person	Rango de edad de la persona
+gender	The gender of the person	Género de la persona
+severityType	The severity of the person's injuries	Gravedad de las lesiones de la persona
+positiveAlcohol	Indicates whether the person tested positive for alcohol (Y/N)	Indica si la persona dio positivo en la prueba de alcohol (S/N)
+vehicleType	The type of vehicle the person was in	Tipo de vehículo en el que se encontraba la persona
 
-## Severity Codes
+Severity Codes
 
 The severity codes represent the severity of a person's injuries. The following severity codes and their corresponding descriptions are used:
-
-| Severity Code | English Description |
-|---------------|---------------------------------------------------------|
-| 1             |  MILD - Emergency care without subsequent hospitalization |
-| 2             |  MILD - Hospitalization up to 24 hours                   |
-| 3             |  SEVERE - Hospitalization exceeding 24 hours             |
-| 4             |  FATAL - Deceased within 24 hours                        |
-| 5             |  MILD - Outpatient care after the accident   |
-| 6             | MILD - Immediate medical care at a health center  |
-| 7             | MILD - Medical care only at the scene of the accident |
-| 14            | MILD - No medical care provided                    |
-| 77            | Unknown                                            |
+Severity Code	English Description	Spanish Description
+1	MILD - Emergency care without subsequent hospitalization	LEVE - Atención de emergencia sin hospitalización posterior
+2	MILD - Hospitalization up to 24 hours	LEVE - Hospitalización hasta 24 horas
+3	SEVERE - Hospitalization exceeding 24 hours	GRAVE - Hospitalización superior a 24 horas
+4	FATAL - Deceased within 24 hours	FATAL - Fallecido dentro de las 24 horas
+5	MILD - Outpatient care after the accident	LEVE - Atención ambulatoria después del accidente
+6	MILD - Immediate medical care at a health center	LEVE - Atención médica inmediata en un centro de salud
+7	MILD - Medical care only at the scene of the accident	LEVE - Atención médica solo en el lugar del accidente
+14	MILD - No medical care provided	LEVE - No se proporcionó atención médica
+77	Unknown	Desconocido
 
 ## API Endpoints
 
-### Get Accidents
+For the documentation we use Swagger: http://localhost:8080/swagger-ui/index.html#/
 
-Retrieves a page of accidents with a specified size.
-
-**Endpoint:** `GET /accidents`
-
-**Parameters:**
-
-- `page` (optional): The page number (default: 0).
-- `size` (optional): The number of records per page (default: 10).
-
-**Response:**
-
-- 200 OK: The list of accidents. This list can be empty if no accidents are found.
-
-**Examples:**
-
-- Request: `GET /accidents`
-- Request: `GET /accidents?page=1`
-- Request: `GET /accidents?page=1&size=10`
-
-### Get Accident by Record Number
-
-Retrieves the accident information based on the specified record number.
-
-**Endpoint:** `GET /accidents/{recordNumber}`
-
-**Parameters:**
-
-- `recordNumber` (required): The record number of the accident.
-
-**Response:**
-
-- 200 OK: Returns the accident with the specified record number.
-- 404 Not Found: If the accident is not found.
-
-**Examples:**
-
-- Request: `GET /accidents/2022S000018`
 
 ## Installation
 
